@@ -19,7 +19,7 @@ form.addEventListener("submit", async (event) => {
     return;
   }
 
-  gallery.innerHTML = "";
+  gallery.innerHTML = "<p>Wait, the image is loaded</p><span class="loader"></span>";
   loader.style.display = "block";
 
   try {

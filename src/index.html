@@ -8,15 +8,17 @@
     <link rel="stylesheet" href="./css/styles.css" />
   </head>
   <body>
-  
-    <main>
-      <form class="form">
-        <input type="text" class="user-input" placeholder="Search images..." />
-        <button type="submit" class="submit-button">Search</button>
+    <header>
+      <form id="search-form">
+          <input type="text" name="searchQuery" placeholder="Search images..." required>
+          <button type="submit">Search</button>
       </form>
-      <ul class="gallery"></ul>
-    </main>
+  </header>
+  <div class="loader" style="display: none;">Loading...</div>
+  <div class="gallery"></div>
 
     <script type="module" src="./main.js"></script>
+    <script type="module" src="./js/pixabay-api.js"></script>
+    <script type="module" src="./js/render-functions.js"></script>
   </body>
 </html>
