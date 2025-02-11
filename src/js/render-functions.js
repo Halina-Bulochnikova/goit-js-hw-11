@@ -7,7 +7,7 @@ export function renderImages(images) {
 
     
     
-    gallery.innerHTML = images.map(image => `
+    const markup = images.map(image => `
         <a href="${image.largeImageURL}" class="gallery-item">
             <img src="${image.webformatURL}" alt="${image.tags}" />
             <div class="info">
