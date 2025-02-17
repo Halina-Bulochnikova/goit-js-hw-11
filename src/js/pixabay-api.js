@@ -15,8 +15,18 @@ export async function fetchImages(query) {
         safesearch: true,
       },
     });
+
+    if (response.data.hits.length === 0) {
+      throw new Error("Sorry, there are no images matching your search query. Please try again!");
+    }
+
     return response.data.hits;
   } catch (error) {
+    iziToast.error({
+      title: "Error",
+      message: error.message || "Something went wrong. Please try again!",
+      position: "topRight",
+    });
     console.error("Error fetching images:", error);
     throw error;
   }

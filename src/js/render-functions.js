@@ -1,13 +1,12 @@
-import SimpleLightbox from 'simplelightbox';
-import 'simplelightbox/dist/simple-lightbox.min.css';
-import iziToast from "izitoast";
+import SimpleLightbox from "simplelightbox";
+import "simplelightbox/dist/simple-lightbox.min.css";
 
 export function renderImages(images) {
-    const gallery = document.querySelector('.gallery');
+  const gallery = document.querySelector(".gallery");
 
-    
-    
-    const markup = images.map(image => `
+  const markup = images
+    .map(
+      (image) => `
         <a href="${image.largeImageURL}" class="gallery-item">
             <img src="${image.webformatURL}" alt="${image.tags}" />
             <div class="info">
@@ -21,12 +20,15 @@ export function renderImages(images) {
                 <span>${image.downloads}</span>
             </div>
         </a>
-    `).join('');
+    `
+    )
+    .join("");
 
-    gallery.innerHTML = markup;
-    const lightbox = new SimpleLightbox('.gallery a', {
-      captionsData: 'alt',
-      captionDelay: 250,
-    });
-    lightbox.refresh();
-  }
+  gallery.innerHTML = markup;
+
+  const lightbox = new SimpleLightbox(".gallery a", {
+    captionsData: "alt",
+    captionDelay: 250,
+  });
+  lightbox.refresh();
+}
